@@ -1,0 +1,67 @@
+/*
+ * TCSS 305 Winter 2019
+ * 
+ * Assignment 5 - Paint
+ */
+
+
+package gui;
+
+import java.awt.EventQueue;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+/**
+ * This class starts the Power Paint 
+ * program.
+ * 
+ * @author Chinenye Ezenwoye    Chinenye@uw.edu
+ * 
+ * @version March 4, 2019
+ */
+public final class Driver {
+    /**
+     * Private constructor to prevent external instantiation.
+     */
+    private Driver() {
+        throw new IllegalStateException();
+    }
+
+    /**
+     * The starter point for the PowerPaint program.
+     * 
+     * @param theArgs command line arguments.
+     */
+    public static void main(final String... theArgs) {
+        
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GUI(); // create the graphical user interface
+            }
+        });
+    }
+
+}
+//    /**
+//     * This is a private constructor to prevent
+//     * external instantiation.
+//     */
+//    private Driver() {
+//        throw new IllegalStateException();
+//    }
+//
+//    /**
+//     * This is the starting point for the power paint program.
+//     * 
+//     * @param theArgs Command line arguments.
+//     */
+//    public static void main(final String[] theArgs) {
+//        EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new GUI().start();
+//            }
+//        });
+//    }
+//}

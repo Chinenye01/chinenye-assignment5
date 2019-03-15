@@ -1,0 +1,62 @@
+/*
+ * TCSS 305 Winter 2019
+ * 
+ * Assignment 5 - Paint
+ */
+
+package gui;
+
+import action.ColorAction;
+import javax.swing.Action;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JToggleButton;
+import javax.swing.JToolBar;
+
+/**
+ * This is a toolbar to be used by the GUI.
+ * 
+ * @author Chinenye Ezenwoye    Chinenye@uw.edu
+ * 
+ * @version March 4, 2019
+ */
+public final class GUIToolBar extends JToolBar {
+    /** 
+     * This is a generated serialization ID. 
+     */
+    private static final long serialVersionUID = 5872004772521482231L;
+    
+    /** 
+     * This is a button group for the buttons for the tools. 
+     */ 
+    private final ButtonGroup myGroup;
+    
+    /** 
+     * This is the drawing panel where color will be set. 
+     */
+    private final DrawingPanel myDrawingPanel;
+    
+    /**
+     * This will Construct the toolbar.
+     * 
+     * @param theDrawingPanel The drawing panel where the color will be set.
+     */
+    protected GUIToolBar(final DrawingPanel theDrawingPanel) {
+        myDrawingPanel = theDrawingPanel;
+        myGroup = new ButtonGroup();
+        add(new JButton(new ColorAction(myDrawingPanel)));
+    }
+    
+    /**
+     * This will create a JToggleButton and adds it the JButtonGroup and the
+     * toolbar.
+     * 
+     * @param theAction The action that is associated with each respective JToggleButton.
+     */
+    protected void createButton(final Action theAction) {
+        final JToggleButton toggleButton = new JToggleButton(theAction);
+        myGroup.add(toggleButton);
+        myGroup.clearSelection();
+        add(toggleButton);
+    }
+}
